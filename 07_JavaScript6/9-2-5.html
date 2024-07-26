@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //입력 예외처리
+      //사각형이나 도형을 만들때 값을 음수로 지정할수 없음
+      //하지만 사용자는 음수를 적어서 낼수도 있기에 음수를 사용하면
+      //예외처리를 사용해 오류를 강제로 발생시켜 실행할수 없도록한다.
+      class Square {
+        constructor(length) {
+          if (length <= 0) {
+            // 사용자가 입력한 길이가 0또는음수라면
+            throw "길이는 0보다 커야합니다"; // throw를 이용해 강제로 오류발생
+          } else {
+            this.length = length;
+          }
+        }
+
+        getParimeter() {
+          return 4 * this.length;
+        }
+        getArea() {
+          return this.length * this.length;
+        }
+      }
+
+      const square = new Square(-10);
+      console.log(`정사각형의 둘래 : ${square.getPerimeter()}`);
+      console.log(`정사각형의 넓이 : ${square.getArea()}`);
+    </script>
+  </head>
+  <body></body>
+</html>
